@@ -37,8 +37,8 @@ android.api = 34
 android.ndk = 26b
 
 # Автоматическое скачивание SDK/NDK (оставьте пустым, если Buildozer должен скачать сам)
-android.sdk_path = 
-android.ndk_path = 
+android.ndk = 23b  # или 26b для Android API 34
+android.api = 34
 
 # Иконка приложения (путь к файлу .png)
 # icon.filename = %(source.dir)s/assets/icon.png
@@ -51,3 +51,5 @@ android.ndk_path =
 
 # Уровень детализации логов (0-2)
 log_level = 2
+
+requirements = kivy==2.0.0, pathlib, android
