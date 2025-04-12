@@ -1,23 +1,35 @@
 name: Build APK
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.8
-      - name: Install Buildozer
-        run: pip install buildozer
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git zip python3-pip zlib1g-dev openjdk-17-jdk
+          pip install buildozer
+
       - name: Build APK
         run: |
           buildozer init
-          sed -i "s/requirements = .*/requirements = kivy==2.0.0, pathlib/" buildozer.spec
+          # Автоматически обновляем NDK и API в buildozer.spec
+          sed -i "s/android.ndk = .*/android.ndk = 23b/" buildozer.spec
+          sed -i "s/android.api = .*/android.api = 34/" buildozer.spec
+          sed -i "s/requirements = .*/requirements = kivy==2.0.0, pathlib, android/" buildozer.spec
           buildozer -v android debug
+
       - name: Upload APK
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: app
+          name: clicker-app
           path: bin/*.apk
