@@ -1,0 +1,49 @@
+#:kivy 2.0.0
+#:import dp kivy.metrics.dp
+#:import Animation kivy.animation.Animation
+
+BoxLayout:
+    orientation: 'vertical'
+    padding: dp(20)
+    spacing: dp(20)
+    canvas.before:
+        Color:
+            rgba: 0.17, 0.24, 0.31, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        id: counter_label
+        text: 'Текущий: {}'.format(app.counter)
+        font_size: dp(35)
+        color: 0.93, 0.94, 0.95, 1
+        halign: 'center'
+
+    Label:
+        id: record_label
+        text: 'Рекорд: {}'.format(app.record)
+        font_size: dp(30)
+        color: 0.74, 0.76, 0.78, 1
+        halign: 'center'
+
+    Button:
+        id: click_btn
+        text: 'ЖМИ!'
+        size_hint: (None, None)
+        size: dp(150), dp(150)
+        pos_hint: {'center_x': 0.5}
+        background_normal: ''
+        background_color: (0, 0, 0, 0)
+        canvas.before:
+            Color:
+                rgba: 0.20, 0.60, 0.86, 1
+            Ellipse:
+                pos: self.pos
+                size: self.size
+        on_press:
+            app.increment_counter()
+            counter_label.text = 'Текущий: {}'.format(app.counter)
+            record_label.text = 'Рекорд: {}'.format(app.record)
+            anim = Animation(size=(dp(140), dp(140)), duration=0.05) + Animation(size=(dp(150), dp(150)), duration=0.2)
+            anim.start(self)
