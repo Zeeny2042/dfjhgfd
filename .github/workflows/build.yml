@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Используйте актуальные версии actions
+        uses: actions/checkout@v4  # Обновите до v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -21,14 +21,10 @@ jobs:
 
       - name: Build APK
         run: |
-          buildozer init
-          sed -i "s/android.ndk = .*/android.ndk = 23b/" buildozer.spec
-          sed -i "s/android.api = .*/android.api = 34/" buildozer.spec
-          sed -i "s/requirements = .*/requirements = kivy==2.0.0, pathlib, android/" buildozer.spec
-          buildozer -v android debug
+          buildozer -v android debug  # Уберите команды sed
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4  # Обновите до v4
         with:
           name: clicker-app
-          path: bin/*.apk  # Убедитесь, что APK создается здесь
+          path: bin/*.apk
