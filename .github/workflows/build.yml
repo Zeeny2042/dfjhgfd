@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Используйте актуальные версии actions
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: clicker-app
-          path: bin/*.apk
+          path: bin/*.apk  # Убедитесь, что APK создается здесь
