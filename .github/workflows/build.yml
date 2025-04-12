@@ -22,7 +22,6 @@ jobs:
       - name: Build APK
         run: |
           buildozer init
-          # Автоматически обновляем NDK и API в buildozer.spec
           sed -i "s/android.ndk = .*/android.ndk = 23b/" buildozer.spec
           sed -i "s/android.api = .*/android.api = 34/" buildozer.spec
           sed -i "s/requirements = .*/requirements = kivy==2.0.0, pathlib, android/" buildozer.spec
