@@ -1,0 +1,8 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+[[mods]]
+modId="freezeworldmod"
+version="1.0"
+displayName="Freeze World Mod"
+description="Мод, позволяющий замораживать мир по нажатию клавиши."

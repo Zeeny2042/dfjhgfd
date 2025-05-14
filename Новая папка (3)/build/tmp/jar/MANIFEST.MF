@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: Новая папка (3)
+Implementation-Version: 1.0.0
+Specification-Vendor: YourNameHere, OtherNameHere
+Specification-Title: examplemod
+Implementation-Timestamp: 2025-05-14T19:24:29+0300
+Specification-Version: 1
+Implementation-Vendor: YourNameHere, OtherNameHere
+

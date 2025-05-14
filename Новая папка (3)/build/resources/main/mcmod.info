@@ -1,0 +1,10 @@
+{
+  "modid": "freezeworldmod",
+  "name": "World Freeze Mod",
+  "description": "Мод для заморозки мира и управления пингом",
+  "version": "2.2",
+  "mcversion": "1.16.5",
+  "author": "Zeeny",
+  "credits": "",
+  "url": ""
+}
